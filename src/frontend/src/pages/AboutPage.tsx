@@ -104,6 +104,14 @@ export default function AboutPage() {
           content={`${SITE_URL}/assets/generated/tru-bond-cleaning-team-melbourne.dim_800x500.jpg`}
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About Tru Bond Cleaning Melbourne | Local Bond Cleaning Experts"
+        />
+        <meta
+          name="twitter:description"
+          content="Locally owned and operated. Over 10 years of experience. Fully insured, police checked, and committed to getting your full bond back."
+        />
         <link rel="canonical" href={`${SITE_URL}/about`} />
       </Helmet>
 

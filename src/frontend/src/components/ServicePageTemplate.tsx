@@ -27,6 +27,57 @@ interface ServicePageProps {
   relatedServices: Array<{ title: string; to: string }>;
 }
 
+function buildServiceSchema(
+  heading: string,
+  description: string,
+  canonical: string,
+  image: string,
+) {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${SITE_URL}/services`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: heading,
+        item: `${SITE_URL}${canonical}`,
+      },
+    ],
+  };
+  const service = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: heading,
+    description,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Tru Bond Cleaning Melbourne",
+      url: SITE_URL,
+      telephone: "+61488841883",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Melbourne",
+        addressRegion: "VIC",
+        addressCountry: "AU",
+      },
+      areaServed: "Melbourne, Victoria",
+    },
+    serviceType: "Bond Cleaning",
+    areaServed: "Melbourne, Victoria",
+    url: `${SITE_URL}${canonical}`,
+    image: `${SITE_URL}${image}`,
+  };
+  return { breadcrumb, service };
+}
+
 export default function ServicePageTemplate({
   meta,
   heading,
@@ -39,6 +90,12 @@ export default function ServicePageTemplate({
   includes,
   relatedServices,
 }: ServicePageProps) {
+  const schemas = buildServiceSchema(
+    heading,
+    meta.description,
+    meta.canonical,
+    meta.ogImage,
+  );
   return (
     <>
       <Helmet>
@@ -54,6 +111,12 @@ export default function ServicePageTemplate({
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <link rel="canonical" href={`${SITE_URL}${meta.canonical}`} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemas.breadcrumb)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(schemas.service)}
+        </script>
       </Helmet>
 
       {/* Hero */}

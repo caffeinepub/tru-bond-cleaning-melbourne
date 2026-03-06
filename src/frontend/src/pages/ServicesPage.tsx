@@ -211,7 +211,19 @@ export default function ServicesPage() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE_URL}/services`} />
+        <meta
+          property="og:image"
+          content={`${SITE_URL}/assets/generated/end-of-lease-cleaning-melbourne.dim_800x500.jpg`}
+        />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Bond Cleaning Services Melbourne | Tru Bond Cleaning Melbourne"
+        />
+        <meta
+          name="twitter:description"
+          content="Professional bond cleaning services covering every area of your Melbourne rental property. 100% Bond Back Guarantee."
+        />
         <link rel="canonical" href={`${SITE_URL}/services`} />
       </Helmet>
 

@@ -58,6 +58,25 @@ export default function SuburbPageTemplate({
   includes,
   relatedSuburbs,
 }: SuburbPageProps) {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Suburbs",
+        item: `${SITE_URL}/suburbs`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `Bond Cleaning ${suburb}`,
+        item: `${SITE_URL}${meta.canonical}`,
+      },
+    ],
+  };
   return (
     <>
       <Helmet>
@@ -75,6 +94,9 @@ export default function SuburbPageTemplate({
         <link rel="canonical" href={`${SITE_URL}${meta.canonical}`} />
         <script type="application/ld+json">
           {JSON.stringify(meta.schema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
 

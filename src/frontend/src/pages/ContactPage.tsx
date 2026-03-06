@@ -130,6 +130,14 @@ export default function ContactPage() {
           content={`${SITE_URL}/assets/generated/contact-bond-cleaning-melbourne.dim_800x500.jpg`}
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact Tru Bond Cleaning Melbourne | Free Quote"
+        />
+        <meta
+          name="twitter:description"
+          content="Get your free bond cleaning quote today. Same day bookings available across Melbourne. 100% Bond Back Guarantee."
+        />
         <link rel="canonical" href={`${SITE_URL}/contact`} />
       </Helmet>
 
