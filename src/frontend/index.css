@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   TRU BOND CLEANING MELBOURNE — Design Tokens (OKLCH)
+   Visual Direction: Clean, trustworthy, premium service
+   Palette: Deep navy blue + vivid green accent + crisp white
+   Typography: Cabinet Grotesk (headings) + General Sans (body)
+   ============================================================ */
+
+/* Cabinet Grotesk — Display / Headings */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* General Sans — Body */
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* --- Core Palette --- */
+    /* Deep Navy Blue (primary) */
+    --primary: 0.28 0.09 255;
+    --primary-foreground: 0.99 0 0;
+
+    /* Vivid Green (accent) */
+    --accent: 0.63 0.19 145;
+    --accent-foreground: 0.99 0 0;
+
+    /* Light backgrounds */
+    --background: 0.98 0.005 255;
+    --foreground: 0.15 0.04 255;
+
+    /* Card */
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.04 255;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.04 255;
+
+    /* Secondary */
+    --secondary: 0.94 0.012 255;
+    --secondary-foreground: 0.25 0.06 255;
+
+    /* Muted */
+    --muted: 0.94 0.008 255;
+    --muted-foreground: 0.52 0.04 255;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border / Input / Ring */
+    --border: 0.88 0.02 255;
+    --input: 0.88 0.02 255;
+    --ring: 0.28 0.09 255;
+
+    /* Charts */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+
+    /* Brand custom tokens */
+    --brand-blue: 0.28 0.09 255;
+    --brand-blue-dark: 0.2 0.09 255;
+    --brand-blue-light: 0.38 0.09 255;
+    --brand-green: 0.63 0.19 145;
+    --brand-green-dark: 0.5 0.18 145;
+    --brand-navy: 0.18 0.07 255;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", "Outfit", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    background: linear-gradient(135deg, oklch(0.18 0.09 255) 0%, oklch(0.28 0.09 255) 60%, oklch(0.32 0.12 240) 100%);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      oklch(0.12 0.08 255 / 0.92) 0%,
+      oklch(0.18 0.09 255 / 0.75) 60%,
+      oklch(0.18 0.09 255 / 0.3) 100%
+    );
+  }
+
+  .section-alt {
+    background: oklch(0.96 0.01 255);
+  }
+
+  .green-badge {
+    background: oklch(0.63 0.19 145 / 0.12);
+    color: oklch(0.45 0.16 145);
+    border: 1px solid oklch(0.63 0.19 145 / 0.3);
+  }
+
+  .text-brand-blue {
+    color: oklch(var(--brand-blue));
+  }
+
+  .text-brand-green {
+    color: oklch(var(--brand-green));
+  }
+
+  .bg-brand-blue {
+    background-color: oklch(var(--brand-blue));
+  }
+
+  .bg-brand-navy {
+    background-color: oklch(var(--brand-navy));
+  }
+
+  .bg-brand-green {
+    background-color: oklch(var(--brand-green));
+  }
+
+  .border-brand-green {
+    border-color: oklch(var(--brand-green));
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px oklch(0.28 0.09 255 / 0.15);
+  }
+}
